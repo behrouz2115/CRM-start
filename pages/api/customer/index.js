@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         const data = req.body.data;
         if (!data.name || !data.lastName || !data.email) return res.status(400).json({ status: 'failed', massege: 'Invaled data' });
         try {
-            const customer = await Customer.create({ data });
+            const customer = await Customer.create(data);
             res.status(201).json({status:'success', massege:'customer created', data:customer})
         } catch (err) {
             console.log(err);
