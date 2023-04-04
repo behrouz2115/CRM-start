@@ -1,3 +1,4 @@
+import { headers } from '@/next.config';
 import React, { useState } from 'react';
 import Form from '../modules/Form';
 
@@ -15,8 +16,14 @@ const AddCustomerPage = () => {
     const cancelHandler = () => {
         console.log('cancel');
     }
-    const saveHandler = () => {
-        console.log('save');
+    const saveHandler = async () => {
+        const res = await fetch("/api/customer", {
+            method: "POST",
+            body: JSON.stringify({ data: form }),
+            headers: { "Content-type": "application/json" }
+        });
+        const data = res.json()
+        console.log(data);
     }
     return (
         <div className='customer-page'>
