@@ -1,4 +1,5 @@
 import { headers } from '@/next.config';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Form from '../modules/Form';
 
@@ -13,8 +14,19 @@ const AddCustomerPage = () => {
         data: "",
         products: []
     });
+    const router = useRouter()
     const cancelHandler = () => {
-        console.log('cancel');
+        setForm({
+            name: '',
+            lastName: '',
+            email: "",
+            phone: "",
+            address: "",
+            postalCode: "",
+            data: "",
+            products: []
+        });
+        router.push('/');
     }
     const saveHandler = async () => {
         const res = await fetch("/api/customer", {
@@ -22,8 +34,9 @@ const AddCustomerPage = () => {
             body: JSON.stringify({ data: form }),
             headers: { "Content-type": "application/json" }
         });
-        const data = res.json()
+        const data = await res.json()
         console.log(data);
+        if (data.status == 'success') router.push('/');   
     }
     return (
         <div className='customer-page'>
