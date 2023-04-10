@@ -10,12 +10,13 @@ const ItemList = ({ form, setForm }) => {
     });
     console.log(products);
   };
-  const changeHandler = () => {};
+    const changeHandler = () => { };
+    const deletHandler = () => { };
   return (
     <div className="item-list">
       <p>Purchased products</p>
-      {products.map((product) => (
-        <div className="form-input__list">
+      {products.map((product,index) => (
+        <div key={product.index} className="form-input__list">
           <FormInput
             name="name"
             lable="Product name"
@@ -23,6 +24,23 @@ const ItemList = ({ form, setForm }) => {
             value={product.name}
             onChange={changeHandler}
           />
+          <div>
+            <FormInput
+              name="price"
+              lable="Price"
+              type="text"
+              value={product.price}
+              onChange={changeHandler}
+            />
+            <FormInput
+              name="qty"
+              lable="Qty"
+              type="text"
+              value={product.gty}
+              onChange={changeHandler}
+            />
+              </div>
+              <button onClick={deletHandler}>Remove</button>
         </div>
       ))}
       <button onClick={addHandler}>Add Item</button>
