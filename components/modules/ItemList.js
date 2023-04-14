@@ -16,8 +16,10 @@ const ItemList = ({ form, setForm }) => {
     newProducts[index][name] = value;
     setForm({...form,products:newProducts})
      };
-  const deletHandler = () => { 
-   
+  const deletHandler = (index) => { 
+    const newProducts = [...products];
+    newProducts.splice(index, 1);
+    setForm({...form,products:newProducts})
      };
   return (
     <div className="item-list">
