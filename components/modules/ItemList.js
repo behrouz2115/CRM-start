@@ -10,47 +10,27 @@ const ItemList = ({ form, setForm }) => {
     });
     console.log(products);
   };
-  const changeHandler = (e,index) => { 
+  const changeHandler = (e, index) => {
     const { name, value } = e.target;
     const newProducts = [...products];
     newProducts[index][name] = value;
-    setForm({...form,products:newProducts})
-     };
-  const deletHandler = (index) => { 
+    setForm({ ...form, products: newProducts });
+  };
+  const deletHandler = (index) => {
     const newProducts = [...products];
     newProducts.splice(index, 1);
-    setForm({...form,products:newProducts})
-     };
+    setForm({ ...form, products: newProducts });
+  };
   return (
     <div className="item-list">
       <p>Purchased products</p>
-      {products.map((product,index) => (
-        <div key={index} className="form-input__list">
-          <FormInput
-            name="name"
-            lable="Product name"
-            type="text"
-            value={product.name}
-            onChange={e=>changeHandler(e,index)}
-          />
-          <div>
-            <FormInput
-              name="price"
-              lable="Price"
-              type="text"
-              value={product.price}
-              onChange={e=>changeHandler(e,index)}
-            />
-            <FormInput
-              name="qty"
-              lable="Qty"
-              type="text"
-              value={product.gty}
-              onChange={e=>changeHandler(e,index)}
-            />
-              </div>
-              <button onClick={()=>deletHandler(index)}>Remove</button>
-        </div>
+      {products.map((product, index) => (
+        <ProductItem
+          key={index}
+          product={product}
+          changeHandler={(e) => changeHandler(e, index)}
+          deletHandler={() => deletHandler(index)}
+        />
       ))}
       <button onClick={addHandler}>Add Item</button>
     </div>
@@ -58,3 +38,37 @@ const ItemList = ({ form, setForm }) => {
 };
 
 export default ItemList;
+
+
+
+
+function ProductItem({product, changeHandler, deletHandler}) {
+  return (
+    <div className="form-input__list">
+      <FormInput
+        name="name"
+        lable="Product name"
+        type="text"
+        value={product.name}
+        onChange={changeHandler}
+      />
+      <div>
+        <FormInput
+          name="price"
+          lable="Price"
+          type="text"
+          value={product.price}
+          onChange={changeHandler}
+        />
+        <FormInput
+          name="qty"
+          lable="Qty"
+          type="text"
+          value={product.gty}
+          onChange={changeHandler}
+        />
+      </div>
+      <button onClick={deletHandler}>Remove</button>
+    </div>
+  );
+}
