@@ -6,7 +6,7 @@ const Form = ({form, setForm}) => {
         <div>
             <ItemList form={form} setForm={setForm} />
         </div>
-    );
+    ); 
 };
 
-export default Form;
+export default Form; 
