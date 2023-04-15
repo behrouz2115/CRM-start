@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     }
     if (req.method == "POST") {
         const data = req.body.data;
+        console.log(data);
         if (!data.name || !data.lastName || !data.email) return res.status(400).json({ status: 'failed', massege: 'Invaled data' });
         try {
             const customer = await Customer.create(data);
