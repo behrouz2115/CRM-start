@@ -1,4 +1,5 @@
 
+import HomePage from '@/components/template/HomePage';
 import Customer from '@/models/Customer';
 import styles from '@/styles/Home.module.css'
 import connecDB from '@/utils/connectDB'
@@ -8,9 +9,7 @@ export default function Index({ customer }) {
   console.log(customer);
   return (
     <div>
-      <h3>
-        test
-      </h3>
+      <HomePage customer={customer} />
     </div>
   )
 }
