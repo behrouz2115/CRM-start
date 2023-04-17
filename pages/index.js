@@ -1,4 +1,5 @@
 
+import Customer from '@/models/Customer';
 import styles from '@/styles/Home.module.css'
 import connecDB from '@/utils/connectDB'
 
@@ -15,6 +16,7 @@ export default function Home() {
 export async function getServerSideProps() {
   try {
     await connecDB();
+    const customer = await Customer.find();
   } catch (err) {
     return {
       notFound:true,
