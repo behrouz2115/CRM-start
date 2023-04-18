@@ -5,7 +5,7 @@ const HomePage = ({ customer }) => {
     console.log(customer);
     return (
         <div>
-            {customer.map(item => <Card/>)}
+            {customer.map(item => <Card key={item._id} customer={ item } />)}
         </div>
     );
 };
