@@ -2,8 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 
 const Card = ({ customer }) => {
-    const deleteHandelr = () => {
-        
+    const deleteHandelr = async () => {
+        const res = await fetch(`/api/delete/${customer._id}`, {
+            method: "DELETE"
+        });
+        const data = await res.json();
+        console.log(data);
     }
     return (
         <div className='card'>
