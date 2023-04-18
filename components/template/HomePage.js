@@ -1,9 +1,11 @@
 import React from 'react';
+import Card from '../modules/Card';
 
-const HomePage = ({customer}) => {
+const HomePage = ({ customer }) => {
+    console.log(customer);
     return (
         <div>
-            HomePage
+            {customer.map(item => <Card/>)}
         </div>
     );
 };
