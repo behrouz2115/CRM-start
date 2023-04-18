@@ -6,7 +6,6 @@ import connecDB from '@/utils/connectDB'
 
 
 export default function Index({ customer }) {
-  console.log(customer);
   return (
     <div>
       <HomePage customer={customer} />
