@@ -23,6 +23,8 @@ export default async function handler(req, res) {
             customer.date = data.date;
             customer.products = data.products;
             customer.updatedAd = Date.now();
+            customer.save();
+            res.status(200).json({status:'success',data:customer})
         } catch (err) {
             console.log(err);
             res.status(400).json({status:'failed', message:"Error in editting data form db"})
