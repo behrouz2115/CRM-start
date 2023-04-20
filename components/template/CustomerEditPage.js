@@ -1,6 +1,7 @@
 import React from 'react';
 
-const CustomerEditPage = () => {
+const CustomerEditPage = ({ data, id }) => {
+    console.log({data,id});
     return (
         <div>
             customer edit page
