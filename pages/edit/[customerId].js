@@ -9,11 +9,15 @@ const Index = () => {
     query: { customerId },
     isReady,
   } = router;
-  useEffect(() => {
-    fetch(`/api/customer/${customerId}`)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+    useEffect(() => {
+        if (isReady) {         
+            fetch(`/api/customer/${customerId}`)
+            .then((res) => res.json())
+            .then((data) => setData(data));
+        }
+        console.log(data);
+    }, [isReady]);
+    if (data) return <CustomerEditPage data={data} id={ customerId } />
   return <CustomerEditPage />;
 };
 
