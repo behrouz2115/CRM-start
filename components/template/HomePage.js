@@ -10,4 +10,4 @@ const HomePage = ({ customer }) => {
     );
 };
 
-export default HomePage;HomePage
+export default HomePage;
