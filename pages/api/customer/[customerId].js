@@ -9,8 +9,9 @@ export default async function handler(req, res) {
         res.status(500).json({ status: 'failed', massege: 'Error in connecting to DB' });
         return;
     }
-    if (req === "GET") {
+    if (req.method === "GET") {
         const id = req.query.customerId;
+        console.log(id);
         try {
             const customer = await Customer.findOne({ _id: id });
             res.status(200).json({status:"success", data:customer})
