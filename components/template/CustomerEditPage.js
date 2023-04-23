@@ -1,8 +1,13 @@
+import moment from "moment";
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Form from '../modules/Form';
 
+
 const CustomerEditPage = ({ data, id }) => {
+    // const date = data.date ? moment(data.date).utc().format(yyyy - mm - dd) : " ";
+    const date = data.date ? moment(data.date).utc().format("YYYY-MM-DD") : " ";
+
     const [form, setForm] = useState({
         name: data.name,
         lastName: data.lastName,
@@ -11,7 +16,7 @@ const CustomerEditPage = ({ data, id }) => {
         address: data.address || "",
         phone: data.phone || "",
         postalCode: data.postalCode || "",
-        date: data.date || "",
+        date: date || "",
         products: data.products
     });
     const router = useRouter();
