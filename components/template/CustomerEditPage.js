@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Form from '../modules/Form';
 
@@ -13,11 +14,20 @@ const CustomerEditPage = ({ data, id }) => {
         date: data.date || "",
         products: data.products
     });
+    const router = useRouter();
     const cancelHandler = () => {
-        
+        router.push("/");
     }
-    const editHandler = () => {
-        
+    const editHandler = async () => {
+        const res = await fetch(`/api/edit/${id}`, {
+            method: "PATCH",
+            body: JSON.stringify({ data: form }),
+            headers: { "ContentType": "application/json" }
+        });
+        const data = await res.json();
+        if (data.status === 'success') {
+            router.push("/")
+        }
     }
     return (
         <div className='customer-page'>
