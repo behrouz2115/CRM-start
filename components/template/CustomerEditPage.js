@@ -9,7 +9,6 @@ const CustomerEditPage = ({ data, id }) => {
         phone: data.phone || "",
         address: data.address || "",
         phone: data.phone || "",
-        phone: data.phone || "",
         postalCode : data.postalCode || "", 
         date : data.date || "",
         products : data.products

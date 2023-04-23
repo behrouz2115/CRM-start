@@ -33,7 +33,7 @@ const Form = ({ form, setForm }) => {
         name="phone"
         lable="Phone"
         type="tell"
-        value={form.tell}
+        value={form.phone}
         onChange={changeHandler}
       />
       <FormInput
