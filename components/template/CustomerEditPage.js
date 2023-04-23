@@ -9,14 +9,24 @@ const CustomerEditPage = ({ data, id }) => {
         phone: data.phone || "",
         address: data.address || "",
         phone: data.phone || "",
-        postalCode : data.postalCode || "", 
-        date : data.date || "",
-        products : data.products
-    })
+        postalCode: data.postalCode || "",
+        date: data.date || "",
+        products: data.products
+    });
+    const cancelHandler = () => {
+        
+    }
+    const editHandler = () => {
+        
+    }
     return (
         <div className='customer-page'>
             <h4>Edded cusotmer</h4>
             <Form form={form} setForm={setForm} />
+            ,<div className='customer-page__buttons'>
+                <button className='first' onClick={cancelHandler}>Cancel</button>
+                <button className='second' onClick={editHandler}>Edit</button>
+            </div>
         </div>
     );
 };
