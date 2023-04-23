@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     }
     if (req.method === "PATCH") {
         const id = req.query.customerId;
-        const data = req.bidy.data;
+        const data = req.body.data;
         try {
             const customer = await Customer.findOne({ _id: id });
             customer.name = data.name;
