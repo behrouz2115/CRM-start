@@ -22,7 +22,8 @@ const CustomerEditPage = ({ data, id }) => {
         const res = await fetch(`/api/edit/${id}`, {
             method: "PATCH",
             body: JSON.stringify({ data: form }),
-            headers: { "ContentType": "application/json" }
+            headers: { "Content-type": "application/json" }
+            // headers: { "ContentType": "application/json" }
         });
         const data = await res.json();
         if (data.status === 'success') {
