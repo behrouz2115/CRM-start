@@ -1,4 +1,3 @@
-// import { headers } from '@/next.config';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Form from '../modules/Form';
