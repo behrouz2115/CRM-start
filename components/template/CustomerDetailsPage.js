@@ -36,6 +36,20 @@ const CustomerDetailsPage = ({ data }) => {
                     <p>{ (moment(data.date).utc().format("YYYY-MM_DD")) }</p>
                 </div>
             </div>
+            <div className='customer-detail__products'>
+                <p>Name</p>
+                <p>Price</p>
+                <p>Qty</p>
+                {
+                    data.products.map((item,index) => (
+                        <React.Fragment key={index}>
+                            <p>{ item.name }</p>
+                            <p>{ item.price }</p>
+                            <p>{ item.qty }</p>
+                        </React.Fragment>
+                    ))
+                }
+            </div>
         </div>
     );
 };
