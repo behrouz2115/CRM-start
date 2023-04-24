@@ -4,12 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const Index = () => {
   const [data, setData] = useState(null);
-    // const router = useRouter();
-    // const {
-    //     query: { customerId },
-    //     isReady,
-    // } = router;
-    const router = useRouter();
+  const router = useRouter();
   const {
     query: { customerId },
     isReady,

@@ -5,7 +5,6 @@ import Form from '../modules/Form';
 
 
 const CustomerEditPage = ({ data, id }) => {
-    // const date = data.date ? moment(data.date).utc().format(yyyy - mm - dd) : " ";
     const date = data.date ? moment(data.date).utc().format("YYYY-MM-DD") : " ";
 
     const [form, setForm] = useState({
