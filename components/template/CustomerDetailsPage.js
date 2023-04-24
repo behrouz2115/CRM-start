@@ -1,8 +1,18 @@
 import moment from 'moment';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const CustomerDetailsPage = ({ data }) => {
     console.log(data);
+    const router = useRouter();
+    const deleteHandler = async () => {
+        const res = await fetch(`/api/delete/${data._id}`, {
+            method: "DELETE"
+        });
+        const newData = await res.json();
+        if (newData.status === "success") router.push('/');
+    }
     return (
         <div className='customer-detail'>
             <h4>Customer Details</h4>
@@ -43,12 +53,17 @@ const CustomerDetailsPage = ({ data }) => {
                 {
                     data.products.map((item,index) => (
                         <React.Fragment key={index}>
-                            <p>{ item.name }</p>
+                            <span>{ item.name }</span>
                             <p>{ item.price }</p>
                             <p>{ item.qty }</p>
                         </React.Fragment>
                     ))
                 }
+            </div>
+            <div className='customer-detail__buttons'>
+                <p>Edit or Delete?</p>
+                <button onClick={deleteHandler} >Delete</button>
+                <Link href={`/edit/${data._id}`}>Edit</Link>
             </div>
         </div>
     );
