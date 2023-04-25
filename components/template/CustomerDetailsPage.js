@@ -43,7 +43,7 @@ const CustomerDetailsPage = ({ data }) => {
                 </div>
                 <div className='customer-detail__item'>
                     <span>Date:</span>
-                    <p>{ (moment(data.date).utc().format("YYYY-MM_DD")) }</p>
+                    <p>{ (moment(data.date).utc().format("YYYY-MM-DD")) }</p>
                 </div>
             </div>
             <div className='customer-detail__products'>
