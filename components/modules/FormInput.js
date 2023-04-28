@@ -1,7 +1,7 @@
 const FormInput = ({ name, lable, type, value, onChange }) => {
   return (
     <div className="form-input">
-      <lable htmlFor={name}>{lable}</lable>
+      <lable>{lable}</lable>
       <input
         name={name}
         type={type}
